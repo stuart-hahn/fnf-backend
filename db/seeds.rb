@@ -9,5 +9,5 @@
 # User.create(username: "slump", password: "test")
 # User.create(username: "antcap24", password: "test")
 
-Tournament.create(name: "Friday Night Football #1")
-Tournament.create(name: "Friday Night Football #2")
+# Tournament.create(name: "Friday Night Football #1")
+# Tournament.create(name: "Friday Night Football #2")
