@@ -1,16 +1,16 @@
-class TournamentsController < ApplicationController
+class Api::V1::TournamentsController < ApplicationController
   before_action :set_tournament, only: [:show, :update, :destroy]
 
   # GET /tournaments
   def index
     @tournaments = Tournament.all
 
-    render json: @tournaments
+    render json: TournamentSerializer.new(@tournaments), status: :ok
   end
 
   # GET /tournaments/1
   def show
-    render json: @tournament
+    render json: TournamentSerializer.new(@tournament), status: :ok
   end
 
   # POST /tournaments
@@ -18,7 +18,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
 
     if @tournament.save
-      render json: @tournament, status: :created, location: @tournament
+      render json: TournamentSerializer.new(@tournament), status: :created, location: @tournament
     else
       render json: @tournament.errors, status: :unprocessable_entity
     end
